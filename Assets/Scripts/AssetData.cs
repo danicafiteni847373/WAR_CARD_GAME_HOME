@@ -15,15 +15,18 @@ public class AssetData
     // The URL to the asset's image.
     public string Image { get; set; }
 
+    public string ImagePreview { get; set; }
+
     // The price of the asset in different regions.
     public Price Price { get; set; }
 
     // Constructor for the AssetData class.
-    public AssetData(int id, string description, string image, Price price)
+    public AssetData(int id, string description, string image, Price price, string imagePreview)
     {
         Id = id;
         Description = description;
         Image = image;
+        ImagePreview = imagePreview;
         Price = price;
     }
 }

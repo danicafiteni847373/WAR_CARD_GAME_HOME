@@ -33,6 +33,8 @@ public static class AssetDataReader
             // Parse the asset image URL
             string image = assetElement.Element("backgroundImageUrl").Value;
 
+            string imagePreview = assetElement.Element("previewImageURL").Value;
+
             // Create a list to store the parsed region prices
             List<RegionPrice> regions = new List<RegionPrice>();
 
@@ -59,7 +61,7 @@ public static class AssetDataReader
             Price price = new Price(regions);
 
             // Add the new AssetData object to the list
-            assets.Add(new AssetData(id, description, image, price));
+            assets.Add(new AssetData(id, description, image, price, imagePreview));
         }
 
         // Return the list of parsed assets

@@ -15,6 +15,7 @@
                 </region>
             </itemPrice>
             <backgroundImageUrl>Image1-Background</backgroundImageUrl>
+            <previewImageURL>Image1-Background</previewImageURL>
         </asset>
         <asset>
             <itemId>002</itemId>
@@ -28,6 +29,7 @@
                 </region>
             </itemPrice>
             <backgroundImageUrl>Image2-Background</backgroundImageUrl>
+            <previewImageURL>Image2-Background</previewImageURL>
         </asset>
         <asset>
             <itemId>003</itemId>
@@ -41,6 +43,7 @@
                 </region>
             </itemPrice>
             <backgroundImageUrl>Image3-Background</backgroundImageUrl>
+            <previewImageURL>Image3-Background</previewImageURL>
         </asset>
     </assets>
 </repository>

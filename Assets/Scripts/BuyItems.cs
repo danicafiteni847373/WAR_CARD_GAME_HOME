@@ -30,6 +30,10 @@ public class BuyItems : MonoBehaviour
             // Subtract the cost of the item from the shared currency amount
             PlayerCurrency.CurrencyAmount -= itemCost;
 
+            // Save the updated currency amount to PlayerPrefs
+            PlayerPrefs.SetInt("CurrencyAmount", PlayerCurrency.CurrencyAmount);
+            PlayerPrefs.Save();
+
             // Add your logic here to provide the purchased item to the player
             // For example, you can enable a new weapon, unlock a feature, etc.
 

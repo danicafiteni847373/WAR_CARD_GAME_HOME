@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCurrency : MonoBehaviour
 {
-    public static int currencyAmount = 1000;  // Shared currency amount
+    public static int currencyAmount = 1000;  
 
     public static int CurrencyAmount
     {
