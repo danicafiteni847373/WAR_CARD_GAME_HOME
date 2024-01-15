@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<repository>
+    <baseUrl>gs://war-card-game-13fc1.appspot.com/images/</baseUrl>
+    <assets>
+        <asset>
+            <itemId>001</itemId>
+            <itemDescription>Texture 1</itemDescription>
+            <itemPrice>
+                <region>
+                    <name>eu</name>
+                    <currency>euro</currency>
+                    <currencySymbol>€</currencySymbol>
+                    <amount>300</amount>
+                </region>
+            </itemPrice>
+            <backgroundImageUrl>Image1-Background</backgroundImageUrl>
+            <previewImageURL>Image1-Background</previewImageURL>
+        </asset>
+        <asset>
+            <itemId>002</itemId>
+            <itemDescription>Texture 2</itemDescription>
+            <itemPrice>
+                <region>
+                    <name>eu</name>
+                    <currency>euro</currency>
+                    <currencySymbol>€</currencySymbol>
+                    <amount>350</amount>
+                </region>
+            </itemPrice>
+            <backgroundImageUrl>Image2-Background</backgroundImageUrl>
+            <previewImageURL>Image2-Background</previewImageURL>
+        </asset>
+        <asset>
+            <itemId>003</itemId>
+            <itemDescription>Texture 3</itemDescription>
+            <itemPrice>
+                <region>
+                    <name>eu</name>
+                    <currency>euro</currency>
+                    <currencySymbol>€</currencySymbol>
+                    <amount>400</amount>
+                </region>
+            </itemPrice>
+            <backgroundImageUrl>Image3-Background</backgroundImageUrl>
+            <previewImageURL>Image3-Background</previewImageURL>
+        </asset>
+    </assets>
+</repository>
