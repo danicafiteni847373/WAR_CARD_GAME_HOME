@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.999996, y: -129}
-  m_SizeDelta: {x: 195.0157, y: 40.5056}
+  m_AnchoredPosition: {x: 3.0000029, y: -99.15761}
+  m_SizeDelta: {x: 151.9883, y: 28.462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2372040
 MonoBehaviour:
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 124804485}
   - component: {fileID: 124804484}
   - component: {fileID: 124804487}
-  - component: {fileID: 124804486}
+  - component: {fileID: 124804488}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -287,6 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad24bddf3fcc24c7788bc73822fa1c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundDisplay: {fileID: 3261958079144181803, guid: e17e506aa602be1489df4ae04b5685a8, type: 3}
+  timer: 0
+  timerText: {fileID: 5249978040811309352, guid: e1bcaca31e8d9624482019f9ca9c1032, type: 3}
   _playingCardsSO: {fileID: 11400000, guid: 608183d2141294234895e22260bbad79, type: 2}
   maximumScore: 2
   animationDuration: 2
@@ -306,26 +309,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &124804486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124804483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 205508143
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &124804487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +323,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitingCanvas: {fileID: 822727277}
   waitingText: {fileID: 947421570}
+--- !u!114 &124804488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124804483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3000510076
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &289230142
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +624,7 @@ GameObject:
   - component: {fileID: 491630141}
   - component: {fileID: 491630140}
   m_Layer: 5
-  m_Name: Server
+  m_Name: Host
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.999996, y: -78}
-  m_SizeDelta: {x: 195.0157, y: 40.5056}
+  m_AnchoredPosition: {x: 3.0000029, y: -63.321503}
+  m_SizeDelta: {x: 151.9883, y: 28.462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491630140
 MonoBehaviour:
@@ -1203,7 +1206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Waiting for player 2
+  m_text: Waiting for the other player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1230,8 +1233,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.17
-  m_fontSizeBase: 51.17
+  m_fontSize: 38.37
+  m_fontSizeBase: 38.37
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1433,7 +1436,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SERVER
+  m_text: 'HOST
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1546,8 +1551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 5}
-  m_SizeDelta: {x: 195.0157, y: 40.5056}
+  m_AnchoredPosition: {x: 3, y: -5}
+  m_SizeDelta: {x: 151.9883, y: 28.462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387977505
 MonoBehaviour:
@@ -2173,8 +2178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.999996, y: -79}
-  m_SizeDelta: {x: 195.0157, y: 40.5056}
+  m_AnchoredPosition: {x: 3.0000029, y: -63}
+  m_SizeDelta: {x: 151.9883, y: 28.462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118771976
 MonoBehaviour:

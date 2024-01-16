@@ -7,6 +7,7 @@ public class PlayingCardsSO : ScriptableObject
 {
     [SerializeField] private List<GameObject> playingCardsList;
     [SerializeField] private List<Texture2D> backgrounds;
+    [SerializeField] private Texture2D activeBackground;
     public Dictionary<string, GameObject> PlayingCardsDict
     {
         get
@@ -18,6 +19,19 @@ public class PlayingCardsSO : ScriptableObject
             }
             return cardData;
         }
+    }
+
+    public Texture2D ActiveBackground
+    {
+        get
+        {
+            // If there's an active background, return it
+            if (activeBackground != null) return activeBackground;
+
+            // If not, return the first background in the list (or null if the list is empty)
+            return backgrounds.Count > 0 ? backgrounds[0] : null;
+        }
+        set => activeBackground = value;
     }
 
     public List<Texture2D> Backgrounds

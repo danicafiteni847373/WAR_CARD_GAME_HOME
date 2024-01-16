@@ -8,7 +8,8 @@ public class BuyItems : MonoBehaviour
 {
     public int itemCost = 200;
     public TextMeshProUGUI currencyText;
-    
+    public PlayingCardsSO playingCardsSO;
+    public GameManager gameManager;
 
     private void Update()
     {
@@ -34,11 +35,17 @@ public class BuyItems : MonoBehaviour
             PlayerPrefs.SetInt("CurrencyAmount", PlayerCurrency.CurrencyAmount);
             PlayerPrefs.Save();
 
-            // Add your logic here to provide the purchased item to the player
-            // For example, you can enable a new weapon, unlock a feature, etc.
+            if (playingCardsSO.Backgrounds.Count > 0)
+            {
+                playingCardsSO.ActiveBackground = playingCardsSO.Backgrounds[0];
+                Debug.Log("Change Background");
+            }
 
             // Update the TextMeshProUGUI text displaying currency
             UpdateCurrencyText();
+
+            // Notify the GameManager to update the background display
+            GameManager.Singleton.UpdateBackgroundDisplay();
         }
         else
         {

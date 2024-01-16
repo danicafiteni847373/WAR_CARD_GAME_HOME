@@ -49,6 +49,10 @@ public struct PlayerData
 
 public class GameManager : MonoBehaviour
 {
+    public RawImage backgroundDisplay;
+
+    private float loadedTime;
+
     [SerializeField] private PlayingCardsSO _playingCardsSO;
     [SerializeField] private int maximumScore = 5;
     [SerializeField] private float animationDuration = 2f;
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
     private PlayerData _p1;
     private PlayerData _p2;
 
+    
+
     private Button _playBtnP1;
     private Button _playBtnP2;
 
@@ -66,6 +72,20 @@ public class GameManager : MonoBehaviour
     private event CardAnimationFinishedDelegate OnCardAnimationFinished;
     private delegate void ScoreChangedDelegate(PlayerData player);
     private event ScoreChangedDelegate OnScoreChanged;
+
+
+    private void Start()
+    {
+        // Set the background display texture to the active background
+        UpdateBackgroundDisplay();
+    }
+
+    public void UpdateBackgroundDisplay()
+    {
+        backgroundDisplay.texture = _playingCardsSO.ActiveBackground;
+        Debug.Log(backgroundDisplay);
+    }
+
 
     private static GameManager _instance;
     public static GameManager Singleton
@@ -81,6 +101,8 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(value);
         }
     }
+
+
     private void Awake()
     {
         Singleton = this;
@@ -119,8 +141,13 @@ public class GameManager : MonoBehaviour
                 SpawnCards();
                 break;
             case "ScoreScene":
+                Debug.Log("ScoreScene loaded");
                 GameObject.Find("BackBtn").GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadSceneAsync("WelcomeScene"));
+
                 TMP_Text result = GameObject.Find("Winner").GetComponent<TMP_Text>();
+                GameObject timeGameObject = GameObject.Find("TimeText"); // Change "TimeText" to the actual name of your GameObject
+                Text timeText = timeGameObject.GetComponent<Text>();
+
                 if (_p1.Score > _p2.Score)
                 {
                     result.text = "Player 1 Wins!";
@@ -129,7 +156,21 @@ public class GameManager : MonoBehaviour
                 {
                     result.text = "Player 2 Wins!";
                 }
+
+                // Access the loaded time from the Timer script
+                Timer timerScript = FindObjectOfType<Timer>();
+                if (timerScript != null)
+                {
+                    loadedTime = timerScript.ElapsedTime; // Use ElapsedTime property to get the loaded time
+                    timeText.text = $"Time: {loadedTime:F2} seconds";
+                }
+                else
+                {
+                    Debug.LogError("Timer script not found!");
+                }
                 break;
+
+
             case "StoreScene":
                 break;
         }
@@ -201,6 +242,7 @@ public class GameManager : MonoBehaviour
 
     private void ScoreChanged(PlayerData player)
     {
+        
         player.PlayerScoreUI.text = $"P{player.PlayerId}: {IncrementScore(player.PlayerId)}";
         if (_p1.Score == maximumScore || _p2.Score == maximumScore)
         {
@@ -211,6 +253,8 @@ public class GameManager : MonoBehaviour
             StartCoroutine(TransitionNextRound(roundTransitionDuration));
         }
     }
+
+    
 
     private Card PickRandomCard()
     {
