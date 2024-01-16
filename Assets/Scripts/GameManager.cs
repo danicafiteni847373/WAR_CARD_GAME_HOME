@@ -50,7 +50,7 @@ public struct PlayerData
 public class GameManager : MonoBehaviour
 {
     public RawImage backgroundDisplay;
-
+    //public Timer timer;
     private float loadedTime;
 
     [SerializeField] private PlayingCardsSO _playingCardsSO;
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
                 });
                 SpawnCards();
                 break;
+
             case "ScoreScene":
                 Debug.Log("ScoreScene loaded");
                 GameObject.Find("BackBtn").GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadSceneAsync("WelcomeScene"));
@@ -157,10 +158,10 @@ public class GameManager : MonoBehaviour
                     result.text = "Player 2 Wins!";
                 }
 
-                // Access the loaded time from the Timer script
                 Timer timerScript = FindObjectOfType<Timer>();
                 if (timerScript != null)
                 {
+                    timerScript.LoadTime(); // Call LoadTime to load the saved time
                     loadedTime = timerScript.ElapsedTime; // Use ElapsedTime property to get the loaded time
                     timeText.text = $"Time: {loadedTime:F2} seconds";
                 }
@@ -169,6 +170,7 @@ public class GameManager : MonoBehaviour
                     Debug.LogError("Timer script not found!");
                 }
                 break;
+
 
 
             case "StoreScene":

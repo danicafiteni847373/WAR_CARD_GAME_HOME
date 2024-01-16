@@ -69,4 +69,4 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 30fd03a5f68314b958321de3f0cc6047, type: 3}
   - {fileID: 2800000, guid: c3e3291572f9c466abefc24cf2abb24b, type: 3}
   - {fileID: 2800000, guid: bdc190f15ce3b42d2bbeb87049f5a6e5, type: 3}
-  activeBackground: {fileID: 0}
+  activeBackground: {fileID: 2800000, guid: 30fd03a5f68314b958321de3f0cc6047, type: 3}

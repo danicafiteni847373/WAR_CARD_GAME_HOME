@@ -21,8 +21,7 @@ public class Timer : MonoBehaviour
             return;
         }
 
-        // Load the saved time when the game starts
-        LoadTime();
+       
     }
 
     private void Update()
@@ -54,10 +53,11 @@ public class Timer : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void LoadTime()
+    public void LoadTime()
     {
         // Load the saved time from PlayerPrefs
         float savedTime = PlayerPrefs.GetFloat("SavedTime", 0f);
         timer = savedTime;
     }
+
 }

@@ -44,8 +44,10 @@ public class BuyItems : MonoBehaviour
             // Update the TextMeshProUGUI text displaying currency
             UpdateCurrencyText();
 
-            // Notify the GameManager to update the background display
-            GameManager.Singleton.UpdateBackgroundDisplay();
+            if (GameManager.Singleton != null)
+            {
+                GameManager.Singleton.UpdateBackgroundDisplay();
+            };
         }
         else
         {
